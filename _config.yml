@@ -103,7 +103,7 @@ analytics:
 author:
   name             : "Xuebing Li"
   avatar           : "/assets/images/me.jpg"
-  bio              : "Life is interesting but study is challenging."
+  bio              : "Life is interesting while study is challenging."
   location         : "Shanghai"
   email            : "johnsonli1993@gmail.com"
   uri              :
@@ -259,7 +259,7 @@ compress_html:
 
 # Defaults
 defaults:
-  # _posts
+  # _osts
   - scope:
       path: ""
       type: posts

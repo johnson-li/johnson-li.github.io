@@ -1,0 +1,21 @@
+---
+permalink: /readings/
+title: "Readings"
+layout: splash
+header:
+  overlay_image: /assets/images/books.jpg
+  overlay_color: "#000"
+  overlay_filter: "0.3"
+---
+
+Papers
+===
+
+Internet Anycast: Performance, Problems and Potential  *- SIGCOMM 18*
+
+
+Books
+===
+
+
+
