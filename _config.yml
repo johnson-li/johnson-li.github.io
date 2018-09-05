@@ -82,7 +82,7 @@ facebook:
   username               : johnson.li.3344
   app_id                 : 1430928420310683
   publisher              :
-og_image                 : # Open Graph/Twitter default site image
+  og_image               : "https://www.xuebingli.com/assets/images/me.jpg"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
