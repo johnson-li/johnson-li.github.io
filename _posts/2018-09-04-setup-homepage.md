@@ -5,6 +5,6 @@ categories:
   - Post
 ---
 
-The fist post.
+The first post.
 
 

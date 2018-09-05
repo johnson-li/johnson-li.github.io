@@ -11,7 +11,7 @@ header:
 Papers
 ===
 
-Internet Anycast: Performance, Problems and Potential  *- SIGCOMM 18*
+ - Internet Anycast: Performance, Problems and Potential  *- SIGCOMM 18*
 
 
 Books
