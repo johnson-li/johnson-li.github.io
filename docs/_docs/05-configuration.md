@@ -2,7 +2,7 @@
 title: "Configuration"
 permalink: /docs/configuration/
 excerpt: "Settings for configuring and customizing the theme."
-last_modified_at: 2018-08-15T09:50:11-04:00
+last_modified_at: 2018-10-04T20:15:46-04:00
 toc: true
 ---
 
@@ -351,6 +351,9 @@ Transform user comments into `_data` files that live inside of your GitHub repos
 **Note:** Looking to migrate comments from a WordPress based site? Give [this tool](https://github.com/arthurlacoste/wordpress-comments-jekyll-staticman) a try.
 {: .notice--info}
 
+**Note:** Please note that as of September 2018, Staticman is reaching GitHub API limits due to its popularity, and it is recommended by its maintainer that users deploy their own instances for production (use `site.staticman.endpoint`).
+{: .notice--warning}
+
 ##### Add Staticman as a Collaborator
 
 1. Allow Staticman push access to your GitHub repository by clicking on **Settings**, then the **Collaborators** tab and adding `staticmanapp` as a collaborator.
@@ -389,8 +392,8 @@ These settings need to be added to your `_config.yml` file as well:
 repository  : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 comments:
   provider  : "staticman_v2"
-staticman:
-  branch    : "master"
+  staticman:
+    branch    : "master"
 ```
 
 **Branch setting:** This is the branch comment files will be sent to via pull requests. If you host your site on GitHub Pages it will likely be `master` unless your repo is setup as a project --- use `gh-pages` in that case.
@@ -491,6 +494,7 @@ For faster and more relevant search ([see demo](https://mmistakes.github.io/mini
      gem "jekyll-seo-tag"
      gem "jekyll-sitemap"
      gem "jekyll-paginate"
+     gem "jekyll-include-cache"
      gem "jekyll-algolia"
    end
    ```
@@ -731,17 +735,71 @@ Used as the defaults for defining what appears in the author sidebar.
 
 ```yaml
 author:
-  name   : "Your Name"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
-  email  : # optional
-  uri    : "http://your-site.com"
-  home   : # null (default), "absolute or relative url to link to author home"
+  name     : "Your Name"
+  avatar   : "/assets/images/bio-photo.jpg"
+  bio      : "My awesome biography constrained to a sentence or two goes here."
+  location : "Somewhere, USA" 
 ```
 
-Social media links are all optional, include the ones you want visible. In most cases you just need to add the username. If you're unsure double check `_includes/author-profile.html` to see how the URL is constructed.
+Author links are all optional, include the ones you want visible under the `author.links` array.
 
-To add social media links not included with the theme or customize the author sidebar further, read the full [layout documentation]({{ "/docs/layouts/#author-profile" | relative_url }}).
+| Name | Description |
+| --- | --- |
+| **label** | Link label (e.g. `"Twitter"`) |
+| **icon** | [Font Awesome icon](https://fontawesome.com/icons?d=gallery) classes (e.g. `"fab fa-fw fa-twitter-square"`) |
+| **url** | Link URL (e.g. `"https://twitter.com/mmistakes"`) |
+
+```yaml
+author:
+  name: "Your Name"
+  avatar: "/assets/images/bio-photo.jpg"
+  bio: "I am an amazing person."
+  location: "Somewhere"
+  links:
+    - label: "Made Mistakes"
+      icon: "fas fa-fw fa-link"
+      url: "https://mademistakes.com"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/mmistakes"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/mmistakes"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/mmistakes"
+```
+
+To customize the author sidebar, read the full [layout documentation]({{ "/docs/layouts/#author-profile" | relative_url }}).
+
+## Site Footer
+
+Footer links can be added under the `footer.links` array.
+
+| Name | Description |
+| --- | --- |
+| **label** | Link label (e.g. `"Twitter"`) |
+| **icon** | [Font Awesome icon](https://fontawesome.com/icons?d=gallery) classes (e.g. `"fab fa-fw fa-twitter-square"`) |
+| **url** | Link URL (e.g. `"https://twitter.com/mmistakes"`) |
+
+```yaml
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/mmistakes"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/mmistakes"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/mmistakes"
+```
+
+**Note:** Twitter and Facebook footer links no longer automatically pull from `site.twitter.username` and `site.facebook.username`. This behavior has been deprecated in favor of the `footer.links` array above.
+{: .notice--danger}
+
+To change "Follow:" text that precedes footer links, edit the `follow_label` key in `_data/ui-text.yml`.
 
 ## Reading Files
 
@@ -836,21 +894,26 @@ timezone: America/New_York
 
 When hosting with GitHub Pages a small [set of gems](https://pages.github.com/versions/) have been whitelisted for use. The theme uses a few of them which can be found under `gems`. Additional settings and configurations are documented in the links below.
 
-| Plugin                             | Description                                                                               |
-| ---------------------------------- | ----------------------------------------------------------------------------------------- |
-| [jekyll-paginate][jekyll-paginate] | Pagination Generator for Jekyll.                                                          |
-| [jekyll-sitemap][jekyll-sitemap]   | Jekyll plugin to silently generate a sitemaps.org compliant sitemap for your Jekyll site. |
-| [jekyll-gist][jekyll-gist]         | Liquid tag for displaying GitHub Gists in Jekyll sites.                                   |
-| [jekyll-feed][jekyll-feed]         | A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts.                 |
-| [jemoji][jemoji]                   | GitHub-flavored emoji plugin for Jekyll.                                                  |
+| Plugin | Description                                                                               |
+| --- | --- |
+| [jekyll-paginate][jekyll-paginate] | Pagination Generator for Jekyll. |
+| [jekyll-sitemap][jekyll-sitemap] | Jekyll plugin to silently generate a sitemaps.org compliant sitemap for your Jekyll site. |
+| [jekyll-gist][jekyll-gist] | Liquid tag for displaying GitHub Gists in Jekyll sites. |
+| [jekyll-feed][jekyll-feed] | A Jekyll plugin to generate an Atom (RSS-like) feed of your Jekyll posts. |
+| [jemoji][jemoji] | GitHub-flavored emoji plugin for Jekyll. |
+| [jekyll-include-cache][jekyll-include-cache] | Liquid tag that caches Liquid includes. |
 
 [jekyll-paginate]: https://github.com/jekyll/jekyll-paginate
 [jekyll-sitemap]: https://github.com/jekyll/jekyll-sitemap
 [jekyll-gist]: https://github.com/jekyll/jekyll-gist
 [jekyll-feed]: https://github.com/jekyll/jekyll-feed
 [jemoji]: https://github.com/jekyll/jemoji
+[jekyll-include-cache]: https://github.com/benbalter/jekyll-include-cache
 
 If you're hosting elsewhere then you don't really have to worry about what is whitelisted as you are free to include whatever [Jekyll plugins](https://jekyllrb.com/docs/plugins/) you desire.
+
+**Note:** The [jekyll-include-cache](https://github.com/benbalter/jekyll-include-cache) plugin needs to be installed in your `Gemfile` and added to the `plugins` array of `_config.yml`. Otherwise you'll throw `Unknown tag 'include_cached'` errors at build.
+{: .notice--warning}
 
 ## Archive Settings
 
