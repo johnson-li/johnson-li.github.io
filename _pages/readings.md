@@ -11,8 +11,8 @@ header:
 Papers
 ===
 
- - Internet Anycast: Performance, Problems and Potential  *- SIGCOMM 18*
-
+ - Internet Anycast: Performance, Problems and Potential 
+ - Leveraging Interconnections for Performance: The Serving Infrastructure of a Large CDN 
 
 Books
 ===

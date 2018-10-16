@@ -108,9 +108,6 @@ author:
   location         : "Shanghai"
   email            : "johnsonli1993@gmail.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: mailto:johnsonli1993@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://www.xuebingli.com"
