@@ -16,6 +16,6 @@ Papers
 
 Books
 ===
-
+ - [Deep Learning](/assets/books/deeplearningbook.pdf)
 
 
