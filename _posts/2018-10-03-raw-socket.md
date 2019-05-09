@@ -2,7 +2,6 @@
 title: "使用 raw socket 进行网络读写"
 date: 2018-10-03
 categories:
-  - C
   - Socket
 ---
 

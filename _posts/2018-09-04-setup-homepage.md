@@ -5,6 +5,5 @@ categories:
   - Post
 ---
 
-The first post.
-
+Thanks Michael Rose for build such awesome template. Refer to [this page](https://mmistakes.github.io/minimal-mistakes/) for how to build a website like mine.
 

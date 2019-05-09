@@ -8,6 +8,8 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
+  - title: "News"
+    url: /news/
   - title: "Posts"
     url: /year-archive/
   - title: "Readings"
