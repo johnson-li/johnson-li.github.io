@@ -83,7 +83,7 @@ facebook:
   username               : johnson.li.3344
   app_id                 : 1430928420310683
   publisher              :
-  og_image               : "https://www.xuebingli.com/assets/images/me.jpg"
+  og_image               : "https://johnson-li.github.io/assets/images/me.jpg"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -110,7 +110,7 @@ author:
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://www.xuebingli.com"
+      url: "https://johnson-li.github.io"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/johnsonli1993"
