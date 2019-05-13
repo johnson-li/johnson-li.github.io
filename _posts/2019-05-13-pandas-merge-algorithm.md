@@ -52,9 +52,10 @@ for i in range(len(count1)):
         ir_old = ir
         for _ in range(rc):
             ir += 1
-            result.append(id1[il], val1[il], id2[il], val2[il])  # the tuple is (id1, val1, id2, val2)
+            result.append(id1[il], val1[il], id2[ir], val2[ir])  # the tuple is (id1, val1, id2, val2)
         il += 1
 ```
 
 The above algorithm is only for explanation. Pandas actually returns a DataFrame instead of a list. 
 And the joined data is also stored by column.
+
