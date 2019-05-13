@@ -1,4 +1,3 @@
-
 ---
 title: "Core Compoments of Pandas"
 date: 2019-05-13
@@ -6,13 +5,11 @@ categories:
   - Pandas
 ---
 
-Core Components of Pandas
-====
 This doc aims to explain how Pandas program is structured and how it persists data in memory. 
 Briefly, Pandas relies on numpy to store data column by column. 
 More details about the data structures and the operations are given below.
 
-##DataFrame
+## DataFrame
 DataFrame is a two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns).
 It is the core class in Pandas to represent table-formatted data and is the most commonly used Pandas class. 
 It can be created in various ways, E.g., from array, from dictionary, from file and so on.
@@ -61,12 +58,12 @@ For the first one, no memory copy is required. It simply creates slices of each 
 For the seconds one, memory copy is required. All of the rows selected by the indexes are copied out of the original DataFrame. A new DataFrame is generated to wrap the copied rows.
 For the third one, the boolean array is translated into the `indexes` just as the seconds example. So memory copy is required, too.
 
-##Series
+## Series
 Series is a one-dimensional labeled array capable of holding any data type (integers, strings, floating point numbers, Python objects, etc.)
 We can understand it as a one-dimensional version of DataFrame.
 
 
-##BlockManager
+## BlockManager
 BlockManager is the core internal data structure to store data for DataFrame and Series. 
 It manages a bunch of labeled 2D arrays, which are implemented by numpy.
 A BlockManager contains a serious of blocks, namely FloatBlock, IntBlock, BoolBlock, etc. 
