@@ -1,5 +1,5 @@
 ---
-title: "Merge Algorithm in Pandas"
+title: "Understanding DataFrame.Merge in Pandas"
 date: 2019-05-13
 categories:
   - Pandas
