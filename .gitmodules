@@ -1,0 +1,3 @@
+[submodule "games/2048"]
+	path = games/2048
+	url = git@github.com:johnson-li/2048.git
